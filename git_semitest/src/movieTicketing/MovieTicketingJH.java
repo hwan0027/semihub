@@ -14,7 +14,7 @@ public class MovieTicketingJH implements Runnable {
 	String[] kindsSongpa = { "007 노 타임 투 다이", "보이스", "기적", "샹치와 텐링즈의 전설", "(월간오페라)아틸라" };
 	String[] kindsYoungdungpo = { "007 노 타임 투 다이", "수색자", "보이스", "기적", "모가디슈", "(월간오페라)아틸라" };
 	String[] cinemaName = { "용산아이파크몰", "압구정", "송파", "영등포" };
-	String[] cinema = { "일반", "PREMIUM", "GOLD CLASS", "4DX", "IMAX" };
+	String[] cinema = { "Business", "PREMIUM", "GOLD CLASS", "4DX", "IMAX" };
 	Scanner scan = new Scanner(System.in);
 
 	Business busi = new Business();
@@ -26,12 +26,12 @@ public class MovieTicketingJH implements Runnable {
 	public void run() {
 
 		System.out.println("-----------------------------");
+		System.out.println("사용하실 기능의 번호를 입력해주세요");
 		for (int i = 0; i < option.length; i++) {
 			System.out.println((i + 1) + ". " + option[i]);
 		}
-
 		int optionCheck = scan.nextInt();
-
+		
 		switch (optionCheck) {
 		case 1:
 			System.out.println("예매하실 CGV의 위치를 선택해주세요");
@@ -47,23 +47,81 @@ public class MovieTicketingJH implements Runnable {
 				for (int i = 0; i < kindsYongsan.length; i++) {
 					System.out.println((i + 1) + ". " + kindsYongsan[i]);
 				}
-				int YongsanTitleCheck = scan.nextInt(); // 용산에서 예매할 영화 제목 체크
+				int yongsanTitleCheck = scan.nextInt(); // 용산에서 예매할 영화 제목 체크
 				System.out.println("-----------------------------");
 				
-				switch (YongsanTitleCheck) {
-				case 1:
-					System.out.println("예매하실 시간을 선택해주세요");
+				switch (yongsanTitleCheck) {
+				case 1: //007
+					System.out.println("예매하실 상영관을 선택해주세요");
+					for(int i = 0; i < cinema.length; i++) {
+						System.out.println((i + 1) + ". "+cinema[i]);
+					}
+					int yongsanCinemaCheck = scan.nextInt();
+					System.out.println("-----------------------------");
+					switch (yongsanCinemaCheck) {
+					case 1: 
+						System.out.println("예매하실 시간을 선택해주세요");
+						break;
+					}
 					break;
+				case 2: //수색자
+					System.out.println("예매하실 상영관을 선택해주세요");
+					System.out.println("1. "+cinema[0]); //Business
+					break;
+				case 3: //보이스
+					System.out.println("예매하실 상영관을 선택해주세요");
+					System.out.println("1. "+cinema[0]);
+					System.out.println("2. "+cinema[1]);
+					break;
+				case 4: //기적
+					System.out.println("예매하실 상영관을 선택해주세요");
+					
+					break;
+				case 5: //샹치
+					System.out.println("예매하실 상영관을 선택해주세요");
+					
+					break;
+				case 6: //모가디슈
+					System.out.println("예매하실 상영관을 선택해주세요");
+					
+					break;
+				case 7: //위플래쉬
+					System.out.println("예매하실 상영관을 선택해주세요");
+					
+					break;
+				case 8: //짱구
+					System.out.println("예매하실 상영관을 선택해주세요");
+					
+					break;
+					
 				}
 				break;
 			case 2: // 압구정
-
+				System.out.println("예매하실 영화를 선택해주세요");
+				for (int i = 0; i < kindsApgujung.length; i++) {
+					System.out.println((i + 1) + ". " + kindsApgujung[i]);
+				}
+				int apgujungTitleCheck = scan.nextInt(); // 압구정에서 예매할 영화 제목 체크
+				System.out.println("-----------------------------");
+				
 				break;
 			case 3: // 송파
-
+				System.out.println("예매하실 영화를 선택해주세요");
+				for (int i = 0; i < kindsSongpa.length; i++) {
+					System.out.println((i + 1) + ". " + kindsSongpa[i]);
+				}
+				int songpaTitleCheck = scan.nextInt(); // 송파에서 예매할 영화 제목 체크
+				System.out.println("-----------------------------");
+				
 				break;
 			case 4: // 영등포
-
+				System.out.println("예매하실 영화를 선택해주세요");
+				for (int i = 0; i < kindsYoungdungpo.length; i++) {
+					System.out.println((i + 1) + ". " + kindsYoungdungpo[i]);
+				}
+				int youngdungpoTitleCheck = scan.nextInt(); // 용산에서 예매할 영화 제목 체크
+				System.out.println("-----------------------------");
+				
 				break;
 			}
 			break;
@@ -172,11 +230,13 @@ public class MovieTicketingJH implements Runnable {
 				System.out.println(cinema[priceCheck - 1] + "관 예매 금액");
 				System.out.println("일반: 25,000원");
 				System.out.println("청소년: 20,000");
+				System.out.println("경로 및 우대 선택이 불가능한 상영관입니다");
 				break;
 			case 3:
 				System.out.println(cinema[priceCheck - 1] + "관 예매 금액");
 				System.out.println("일반: 35,000원");
 				System.out.println("청소년: 30,000");
+				System.out.println("경로 및 우대 선택이 불가능한 상영관입니다");
 				break;
 			case 4:
 				System.out.println(cinema[priceCheck - 1] + "관 예매 금액");
@@ -189,6 +249,7 @@ public class MovieTicketingJH implements Runnable {
 				System.out.println(cinema[priceCheck - 1] + "관 예매 금액");
 				System.out.println("일반: 19,000원");
 				System.out.println("청소년: 15,000");
+				System.out.println("경로 및 우대 선택이 불가능한 상영관입니다");
 				break;
 			}
 			break;
