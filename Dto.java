@@ -1,6 +1,6 @@
-package conning;
+package customer;
 
-public class NaverDTO {
+public class Dto {
 	private String id;
     private String pw;
 	private String name;
@@ -8,7 +8,20 @@ public class NaverDTO {
 	private String birth;
 	private String email;
 	private String tel;
-	
+	public Dto(String id, String pw, String name, String gender, String birth, String email, String tel) {
+		super();
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.gender = gender;
+		this.birth = birth;
+		this.email = email;
+		this.tel = tel;
+	}
+	public Dto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public String getId() {
 		return id;
 	}
@@ -54,9 +67,10 @@ public class NaverDTO {
 	@Override
 	public String toString() {
 		String str = String.format("아이디:%s \n이름:%s \n성별:%s \n생일:%s \n이메일:%s \n번호:%s \n",
-									id, name, gender, birth, email, tel);
-		return str;
+				id, name, gender, birth, email, tel);
+        return str;
 	}
 	
 	
+
 }

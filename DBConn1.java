@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
-public class DBConn {
+public class DBConn1 {
 	private static Connection dbConn;	
 	public static Connection getConnection(){
 		if(dbConn==null){

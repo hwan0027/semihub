@@ -1,24 +1,28 @@
-package conning;
+package customer;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NaverDAO {
+import conning.DBConn;
+
+public class Dao {
+	
 
 	//1.insert
-	public int insertData(NaverDTO dto){
+	public int insertData(Dto dto){
 		int result = 0;
 		Connection conn = DBConn.getConnection();
 		PreparedStatement pstmt = null;
 		String sql;
 
-		try {
-			sql = "insert into naverMember (id,pw,name,gender,birth,email,tel) ";
-			sql+= "values (?,?,?,?,?,?,?)";
+		sql = "insert into naverMember (id,pw,name,gender,birth,email,tel) ";
+		sql+= "values (?,?,?,?,?,?,?)";
 
+		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getId());
 			pstmt.setString(2, dto.getPw());
@@ -27,20 +31,18 @@ public class NaverDAO {
 			pstmt.setString(5, dto.getBirth());
 			pstmt.setString(6, dto.getEmail());
 			pstmt.setString(7, dto.getTel());
-
+			
 			result = pstmt.executeUpdate();
 			pstmt.close();
-
-
-		} catch (Exception e) {
+			
+		} catch (SQLException e) {
 			System.out.println(e.toString());
 		}
 		return result;
 	}
 
-
 	//2.update
-	public int updateData(NaverDTO dto){
+	public int updateData(Dto dto){
 
 		int result = 0;
 		Connection conn = DBConn.getConnection();
@@ -60,11 +62,12 @@ public class NaverDAO {
 
 			pstmt.close();
 
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			System.out.println(e.toString());
 		}
 		return result;
 	}
+	
 	//3.delete
 	public int deleteDate(String id, String pw){
 		int result = 0;
@@ -80,14 +83,15 @@ public class NaverDAO {
 			result = pstmt.executeUpdate();
 			pstmt.close();
 
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			System.out.println(e.toString());
 		}
 		return result;	
 	}
+	
 	//4.selectAll
-	public List<NaverDTO> getList() {
-		List<NaverDTO> lists = new ArrayList<NaverDTO>();
+	public List<Dto> getList() {
+		List<Dto> lists = new ArrayList<Dto>();
 		Connection conn = DBConn.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -100,7 +104,7 @@ public class NaverDAO {
 			rs = pstmt.executeQuery();
 
 			while(rs.next()){
-				NaverDTO dto = new NaverDTO();
+				Dto dto = new Dto();
 				dto.setId(rs.getString("id"));
 				dto.setPw(rs.getString("pw"));
 				dto.setName(rs.getString("name"));
@@ -115,14 +119,16 @@ public class NaverDAO {
 			rs.close();
 			pstmt.close();
 
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			System.out.println(e.toString());
 		}
 		return lists;
 	}
+
+
 	//5.searchId
-	public List<NaverDTO> getList(String id){
-		List<NaverDTO> lists = new ArrayList<NaverDTO>();
+	public List<Dto> getList(String id){
+		List<Dto> lists = new ArrayList<Dto>();
 		Connection conn = DBConn.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -136,7 +142,7 @@ public class NaverDAO {
 			rs = pstmt.executeQuery();
 
 			while(rs.next()){
-				NaverDTO dto = new NaverDTO();
+				Dto dto = new Dto();
 
 				dto.setId(rs.getString("id"));
 				dto.setPw(rs.getString("pw"));
@@ -151,11 +157,12 @@ public class NaverDAO {
 			rs.close();
 			pstmt.close();
 
-		}catch (Exception e) {
+		}catch (SQLException e) {
 			System.out.println(e.toString());
 
 		}
 		return lists;
 	}
+
 
 }

@@ -1,11 +1,13 @@
-package conning;
+package customer;
 
 import java.util.Scanner;
 
-public class NaverMain {
-	public static void main(String[] args) throws AuthenException {
+import conning.DBConn;
+
+public class CustomerMain {
+	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		Naver ob = new Naver();
+		Customer ob = new Customer();
 
 		int ch;
 
@@ -44,5 +46,6 @@ public class NaverMain {
 		}
 
 	}
+
 
 }
