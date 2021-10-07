@@ -5,6 +5,7 @@ create table `employee_db`.`movie`(
 
 insert into movie values (0,"007 노 타임 투 다이"), (0,"수색자"), (0,"보이스"), (0,"기적"), (0,"모가디슈"), (0,"위플래쉬"), (0,"극장판 짱구는 못말려-격돌! 낙서왕국과 얼추 네 명의 용사들"), (0,"샹치와 텐링즈의 전설");
 
+
 select * from movie;
 
 CREATE TABLE `employee_db`.`cinema` (
@@ -51,9 +52,14 @@ select * from cinema;
 select * from theater;
 select m.title from employee_db.movie m join  theater_time tt on m.id = tt.movie_id join cinema c on c.id = tt.cinema_id where c.id = 1 group by m.title;
 select tt.time from employee_db.movie m join  theater_time tt on m.id = tt.movie_id join cinema c on c.id = tt.cinema_id where c.id = 1;
-select t.theater from employee_db.theater t join theater_time tt on t.id = tt.theater_id join cinema c on tt.cinema_id = c.id where c.id = 1 group by t.theater;
-select * from theater_time;
+select t.theater from employee_db.theater t join theater_time tt on t.id = tt.theater_id join cinema c on tt.cinema_id = c.id join movie m on m.id = tt.movie_id where m.id = 1 group by t.theater;
 
+select tt.time from employee_db.theater t join theater_time tt on t.id = tt.theater_id join cinema c on tt.cinema_id = c.id join movie m on m.id = tt.movie_id where t.id = 2 && c.id = 1 && m.id = 1;
+
+select * from theater_price;
+select pr.age, pr.price from theater_price pr join theater t on pr.theater_id = t.id where t.id = 1 group by pr.age;
+
+select * from theater_time;
 	-- 용산 007
     insert into theater_time values (0,1,1,1,"12관 13:20"),(0,1,1,1,"13관 12:40"),(0,1,1,1,"13관 15:50"),(0,1,1,1,"13관 19:20"),(0,1,1,1,"17관 10:30"),(0,1,1,1,"17관 13:50");
 	insert into theater_time values (0,1,1,2,"17관 10:30"),(0,1,1,2,"17관 13:50"),(0,1,1,2,"17관 17:00");
@@ -68,13 +74,14 @@ insert into theater_time values (0,1,3,1,"1관 8:20"),(0,1,3,1,"1관 10:40"),(0,
 insert into theater_time values (0,1,4,1,"13관 19:40"),(0,1,4,1,"7관 8:00"),(0,1,4,1,"5관 8:50"),(0,1,4,1,"5관 11:15"),(0,1,4,1,"5관 16:05");
 insert into theater_time values (0,1,4,2,"17관 8:00");
 -- 용산 샹치
-insert into theater_time values (0,1,5,1,"18관 10:15"),(0,1,5,1,"18관 16:55"),(0,1,5,1,"18관 19:35");
+insert into theater_time values (0,1,8,1,"18관 10:15"),(0,1,8,1,"18관 16:55"),(0,1,8,1,"18관 19:35");
 -- 용산 모가디슈
-insert into theater_time values (0,1,6,1,"1관 8:20"),(0,1,6,1,"1관 10:40"),(0,1,6,1,"1관 13:00"),(0,1,6,1,"1관 15:20"),(0,1,6,1,"1관 17:40");
+insert into theater_time values (0,1,5,1,"1관 8:20"),(0,1,5,1,"1관 10:40"),(0,1,5,1,"1관 13:00"),(0,1,5,1,"1관 15:20"),(0,1,5,1,"1관 17:40");
 -- 용산 위플래쉬
-insert into theater_time values (0,1,7,1,"1관 8:40"),(0,1,7,1,"1관 11:15"),(0,1,7,1,"1관 13:30"),(0,1,7,1,"6관 11:50"),(0,1,7,1,"6관 17:10");
+insert into theater_time values (0,1,6,1,"1관 8:40"),(0,1,6,1,"1관 11:15"),(0,1,6,1,"1관 13:30"),(0,1,6,1,"6관 11:50"),(0,1,6,1,"6관 17:10");
 -- 용산 짱구
-insert into theater_time values (0,1,8,1,"1관 17:40"),(0,1,8,1,"6관 9:20"),(0,1,8,1,"6관 14:00");
+insert into theater_time values (0,1,7,1,"1관 17:40"),(0,1,7,1,"6관 9:20"),(0,1,7,1,"6관 14:00");
+select * from theater_time;
 
 -- 압구정 007
 insert into theater_time values (0,2,1,1,"1관B2층 12:40"),(0,2,1,1,"1관B2층 15:50"),(0,2,1,1,"1관B2층 19:00"),(0,2,1,1,"2관B2층 10:40"),(0,2,1,1,"2관B2층 13:50");
