@@ -3,11 +3,15 @@ package movieTicketing;
 public class Premium {
 	String[] A = { "□", "□", "□", "□", " ", "□", "□", "□", "□", " ", "□", "□", "□", "□", "\n" };
 
-	public void sysoutPre() {
+	public String sysoutPre() {
+		String str = "①②③④ ⑤⑥⑦⑧ ⑨⑩⑪⑫\n";
 		System.out.println("①②③④ ⑤⑥⑦⑧ ⑨⑩⑪⑫");
+		str += "A ";
 		for (int i = 0; i < A.length; i++) {
 			System.out.print(A[i]);
+			str += A[i];
 		}
+		return str;
 	}
 
 	public void setSeat(int b) {

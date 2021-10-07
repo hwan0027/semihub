@@ -7,7 +7,7 @@ public class Business {
 	String[] C = { "□", "□", " ", "□", "□", "□", "□", "□", "□", "□", "□", " ", "□", "□", "\n" };
 	String[] D = { "□", "□", " ", "□", "□", "□", "□", "□", "□", "□", "□", " ", "□", "□", "\n" };
 	String[] E = { "□", "□", " ", "□", "□", "□", "□", "□", "□", "□", "□", " ", "□", "□", "\n" };
-
+	
 	public void setSeat(String a, int b) {
 		switch (a) {
 		case "A":
@@ -69,28 +69,39 @@ public class Business {
 		}
 	}
 
-	public void sysoutBusi() {
+	public String sysoutBusi() {
 		System.out.println("  ①② ③④⑤⑥⑦⑧⑨⑩ ⑪⑫");
+		String str = "  ①② ③④⑤⑥⑦⑧⑨⑩ ⑪⑫"+"\n";
+		str += "A ";
 		System.out.print("A ");
 		for (int i = 0; i < A.length; i++) {
 			System.out.print(A[i]);
+			str += A[i];
 		}
+		str += "B ";
 		System.out.print("B ");
 		for (int i = 0; i < B.length; i++) {
 			System.out.print(B[i]);
+			str += B[i];
 		}
+		str += "C ";
 		System.out.print("C ");
 		for (int i = 0; i < C.length; i++) {
 			System.out.print(C[i]);
+			str += C[i];
 		}
+		str += "D ";
 		System.out.print("D ");
 		for (int i = 0; i < D.length; i++) {
 			System.out.print(D[i]);
+			str += D[i];
 		}
+		str += "E ";
 		System.out.print("E ");
 		for (int i = 0; i < E.length; i++) {
 			System.out.print(E[i]);
+			str += E[i];
 		}
+		return str;
 	}
-
 }

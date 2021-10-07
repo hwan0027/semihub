@@ -13,7 +13,7 @@ public class MovieTicketingJH implements Runnable {
 	
 	
 
-	String[] option = { "예매", "취소", "예매조회", "영화조회", "금액" };
+	String[] option = { "예매", "취소", "예매조회", "금액" };
 	String[] title = { "007 노 타임 투 다이", "수색자", "보이스", "기적", "모가디슈", "위플래쉬", "극장판 짱구는 못말려-격돌! 낙서왕국과 얼추 네 명의 용사들",
 			"샹치와 텐링즈의 전설" };
 	String[] kindsYongsan = { "007 노 타임 투 다이", "수색자", "보이스", "기적", "샹치와 텐링즈의 전설", "모가디슈", "위플래쉬",
