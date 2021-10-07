@@ -28,8 +28,11 @@ public class Movie {
 			MovieDTO dto = new MovieDTO();
 			do{
 				try{
+					System.out.println();
 					System.out.println("아이디는 5~15자 내외로 입력해 주세요");
 					System.out.println("아이디는 영문과 숫자를 혼용해서 만들어 주세요");
+					
+					System.out.println();
 					System.out.print("아이디: ");
 					dto.setId(sc.next());
 					ne.idFormat(dto.getId());
@@ -40,12 +43,15 @@ public class Movie {
 			} while(id);
 			do{
 				try{
+					System.out.println();
 					System.out.println("비밀번호는 6~15자 내외로 입력해 주세요");
 					System.out.println("비밀번호는 영문과 숫자만 혼용해서 만들어 주세요");
 					
+					System.out.println();
 					System.out.print("비밀번호:");
 					dto.setPw(sc.next());
 
+					System.out.println();
 					System.out.println("비밀번호 확인을 위해 한 번 더 입력해 주세요");
 					System.out.print("비밀번호 확인:");
 					pw2 = sc.next();
@@ -59,8 +65,10 @@ public class Movie {
 			} while(pw);
 			do{
 				try{
+					System.out.println();
 					System.out.println("이름을 한글로만 입력 해주세요");
 					System.out.print("이름:");
+					
 					dto.setName(sc.next());
 					ne.nameCheck(dto.getName());
 					name=false;
@@ -70,6 +78,7 @@ public class Movie {
 			} while(name);
 			do{
 				try{
+					System.out.println();
 					System.out.println("성별을 입력 해 주세요");
 					System.out.print("성별[여/남]:");
 					dto.setGender(sc.next());
@@ -80,15 +89,18 @@ public class Movie {
 				}
 
 			} while(gender);
+			System.out.println();
 			System.out.println("생일을 입력 해주세요 [xxxx-xx-xx] 형식으로 부탁드립니다.");
 			System.out.print("생일:");
 			dto.setBirth(sc.next());
 			
+			System.out.println();
 			System.out.println("이메일을 입력 해주세요 xxxx@xxxx형식으로 부탁드립니다");
 			System.out.print("이메일:");
 			dto.setEmail(sc.next());
 			do{
 				try{
+					System.out.println();
 					System.out.println("전화번호를 입력 해주세요 [xxx-xxxx-xxxx]형식으로 부탁드립니다");
 					System.out.print("전화번호:");
 					dto.setTel(sc.next());
