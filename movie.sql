@@ -22,7 +22,7 @@
 DROP TABLE IF EXISTS `moviemember`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `moviemember` (
+CREATE TABLE `employee_db`.`moviemember` (
   `memeber_id` int NOT NULL AUTO_INCREMENT,
   `id` varchar(45) NOT NULL,
   `pw` varchar(45) NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE `moviemember` (
 -- Dumping data for table `moviemember`
 --
 
-LOCK TABLES `moviemember` WRITE;
+LOCK TABLES `employee_db`.`moviemember` WRITE;
 /*!40000 ALTER TABLE `moviemember` DISABLE KEYS */;
 /*!40000 ALTER TABLE `moviemember` ENABLE KEYS */;
 UNLOCK TABLES;
