@@ -13,7 +13,7 @@ public class ServerClient {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int cnt = 0;
-		try (Socket socket = new Socket("192.168.200.158", 7777); // 테스트용 집 아이피
+		try (Socket socket = new Socket("192.168.0.9", 7777); // 테스트용 집 아이피
 				BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 				BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()))) {
 

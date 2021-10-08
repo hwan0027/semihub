@@ -195,7 +195,7 @@ public class Server {
 							} catch (SQLException e) {
 								e.printStackTrace();
 							}
-							sql = "select pr.age from theater_price pr join theater t on pr.theater_id = t.id where t.id = 1 group by pr.age;";
+							sql = "select pr.age, pr.price from theater_price pr join theater t on pr.theater_id = t.id where t.id = 1 group by pr.age;";
 
 							try (Connection conn = MyConn.getConn(); PreparedStatement pst = conn.prepareStatement(sql)) {
 								try (ResultSet rs = pst.executeQuery()) {
